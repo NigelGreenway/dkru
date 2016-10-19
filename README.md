@@ -1,6 +1,31 @@
 # dkru
 A utility function to ease the pain of managing docker containers
 
+This helps negate situations like:
+
+```shell
+$ docker stop $(docker ps -aq)
+89c5f621ee7c
+f55bb41ebc88
+$ docker rm $(docker ps -aq)
+89c5f621ee7c
+f55bb41ebc88
+$
+```
+
+Admittedly, this can be negated slightly by the following:
+
+
+```shell
+$ docker stop $(docker ps -aq)
+89c5f621ee7c
+f55bb41ebc88
+$ ^stop^rm
+89c5f621ee7c
+f55bb41ebc88
+$
+```
+
 ## Listing containers and images
 
 `dkru -l` will list all containers and images
